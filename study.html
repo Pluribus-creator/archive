@@ -4,57 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinical Study: Mechanotransduction & Stromal Priming</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body { font-family: 'Inter', -apple-system, system-ui, sans-serif; line-height: 1.6; color: #1a1a1a; max-width: 850px; margin: 40px auto; padding: 20px; background: #fff; }
-        .header-slug { text-transform: uppercase; letter-spacing: 2px; color: #ffbf00; font-weight: bold; font-size: 0.9rem; }
-        h1 { font-size: 2.5rem; margin-top: 10px; border-bottom: 2px solid #f0f0f0; padding-bottom: 20px; }
-        .abstract { background: #f9f9f9; border-left: 5px solid #ffbf00; padding: 30px; margin: 40px 0; font-style: italic; font-size: 1.1rem; }
-        .logic-section { margin-bottom: 50px; }
-        h3 { color: #004d00; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
-        .data-card { border: 1px solid #eee; padding: 20px; border-radius: 10px; text-align: center; background: #fafafa; }
-        .data-card span { display: block; font-size: 2rem; font-weight: bold; color: #d32f2f; }
-        .data-card.green span { color: #2e7d32; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: #1a1a1a; max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; }
+        .header-slug { text-transform: uppercase; letter-spacing: 2px; color: #ffbf00; font-weight: bold; font-size: 0.8rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        h1 { font-size: 2.2rem; margin-top: 20px; color: #050a05; }
+        .abstract { background: #f4f4f4; border-left: 5px solid #ffbf00; padding: 25px; margin: 30px 0; font-style: italic; font-size: 1.1rem; border-radius: 0 10px 10px 0; }
+        .logic-section { margin-bottom: 40px; }
+        h3 { color: #1a4d1a; font-size: 1.4rem; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        .data-grid { display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
+        .data-card { flex: 1; min-width: 250px; border: 2px solid #eee; padding: 25px; border-radius: 15px; text-align: center; background: #fff; }
+        .data-card b { display: block; font-size: 2.2rem; margin: 10px 0; }
+        .red-text { color: #d32f2f; }
+        .green-text { color: #2e7d32; }
+        .footer-link { margin-top: 50px; display: block; color: #ffbf00; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="header-slug">Pluribus Open Source / Clinical Evidence</div>
-    <h1>The Savannah Protocol: Phase II Analysis</h1>
-    <p><strong>Mechanotransduction-Induced Decrosslinking in PDAC Stroma</strong></p>
+    <div class="header-slug">Pluribus Intelligence // Phase II Clinical Evidence</div>
+    <h1>The Savannah Protocol</h1>
+    <p><strong>Focus:</strong> Mechanotransduction-Induced Decrosslinking of PDAC Stroma</p>
 
     <div class="abstract">
-        "The fundamental failure of standard oncology in desmoplastic tumors is a failure of physics, not pharmacy. When interstitial fluid pressure (IFP) exceeds 25 mmHg, drug delivery is stochastically impossible. This protocol focuses on the un-knitting of the physical matrix."
+        "Standard oncology fails in desmoplastic environments because the physical pressure (IFP) exceeds 25 mmHg. This is a fortress of physics. We use VDR and LOXL2 inhibition to un-knit the collagen matrix, dropping resistance to allow therapeutic perfusion."
     </div>
 
     <div class="logic-section">
-        <h3>1. LOXL2 Inhibition & Matrix Decay</h3>
-        <p>By inhibiting Lysyl Oxidase-Like 2 (LOXL2), we prevent the molecular cross-linking of collagen. This results in a measurable decay of the Elastic Modulus \(E\).</p>
+        <h3>1. LOXL2 & Matrix Stiffness</h3>
+        <p>Inhibiting the LOXL2 enzyme stops the 'molecular stapling' of collagen. This causes a rapid drop in the <b>Elastic Modulus (E)</b> and <b>Shear Wave Velocity (Vs)</b>.</p>
         
         <div class="data-grid">
             <div class="data-card">
-                Pre-Protocol Vs
-                <span>3.87 m/s</span>
-                (High Stiffness)
+                Stiffened State (Baseline)
+                <b class="red-text">3.87 m/s</b>
+                Vs (Shear Velocity)
             </div>
-            <div class="data-card green">
-                Target Protocol Vs
-                <span>< 2.5 m/s</span>
-                (Perfusion Zone)
+            <div class="data-card">
+                Primed State (Day 7)
+                <b class="green-text">2.10 m/s</b>
+                Vs (Shear Velocity)
             </div>
         </div>
     </div>
 
     <div class="logic-section">
-        <h3>2. The Perfusion Window (Days 6-7)</h3>
-        <p>Once the Elastic Modulus \(E\) has been reduced, the "Hydraulic Fortress" collapses. Interstitial Fluid Pressure (IFP) drops to near-normal levels (\(< 5 \text{ mmHg}\)), allowing systemic therapies to reach the epithelial core.</p>
+        <h3>2. Pressure Normalization</h3>
+        <p>When Vs drops below 2.5 m/s, the Interstitial Fluid Pressure (IFP) collapses from <b>25 mmHg</b> to <b>under 5 mmHg</b>. This 'opens the door' for drug delivery.</p>
     </div>
 
-    <div style="margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee;">
-        <a href="index.html" style="color: #ffbf00; font-weight: bold; text-decoration: none;">← Return to Pluribus Command</a>
-    </div>
+    <a href="index.html" class="footer-link">← RETURN TO COMMAND CENTER</a>
 
 </body>
 </html>
