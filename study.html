@@ -3,56 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinical Study: Mechanotransduction & Stromal Priming</title>
+    <title>Cancer // Pluribus</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: #1a1a1a; max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; }
-        .header-slug { text-transform: uppercase; letter-spacing: 2px; color: #ffbf00; font-weight: bold; font-size: 0.8rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        h1 { font-size: 2.2rem; margin-top: 20px; color: #050a05; }
-        .abstract { background: #f4f4f4; border-left: 5px solid #ffbf00; padding: 25px; margin: 30px 0; font-style: italic; font-size: 1.1rem; border-radius: 0 10px 10px 0; }
-        .logic-section { margin-bottom: 40px; }
-        h3 { color: #1a4d1a; font-size: 1.4rem; border-bottom: 1px solid #eee; padding-bottom: 8px; }
-        .data-grid { display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
-        .data-card { flex: 1; min-width: 250px; border: 2px solid #eee; padding: 25px; border-radius: 15px; text-align: center; background: #fff; }
-        .data-card b { display: block; font-size: 2.2rem; margin: 10px 0; }
-        .red-text { color: #d32f2f; }
-        .green-text { color: #2e7d32; }
-        .footer-link { margin-top: 50px; display: block; color: #ffbf00; text-decoration: none; font-weight: bold; }
+        body { font-family: 'Georgia', serif; line-height: 1.6; color: #e8e6e3; background-color: #1a1a17; max-width: 700px; margin: 60px auto; padding: 20px; }
+        h1 { font-size: 2.2rem; font-weight: normal; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        h2 { font-size: 1.5rem; font-weight: normal; margin-top: 50px; color: #fff; }
+        p, li { font-size: 1.15rem; color: #ccc; }
+        a { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+        .high-school { font-style: italic; border-left: 2px solid #ffbf00; padding-left: 20px; margin: 30px 0; color: #aaa; }
+        .logic-box { background: #252522; padding: 25px; border-radius: 4px; margin: 30px 0; font-family: 'Courier New', monospace; color: #00ff00; }
+        .back-link { margin-top: 100px; display: block; border-top: 1px solid #333; padding-top: 20px; }
     </style>
 </head>
 <body>
 
-    <div class="header-slug">Pluribus Intelligence // Phase II Clinical Evidence</div>
-    <h1>The Savannah Protocol</h1>
-    <p><strong>Focus:</strong> Mechanotransduction-Induced Decrosslinking of PDAC Stroma</p>
+    <h1>Knot #1: Cancer (Desmoplasia & Perfusion)</h1>
 
-    <div class="abstract">
-        "Standard oncology fails in desmoplastic environments because the physical pressure (IFP) exceeds 25 mmHg. This is a fortress of physics. We use VDR and LOXL2 inhibition to un-knit the collagen matrix, dropping resistance to allow therapeutic perfusion."
+    <div class="high-school">
+        <strong>The "City Under Siege" Analogy:</strong> Imagine a city where the enemy hasn’t just built a wall, they’ve filled the streets with solid concrete and crushed all the water pipes. No matter how much medicine you send in, it can't move through the rubble. This "concrete" is <strong>desmoplasia</strong>—a dense scar tissue cancer builds to protect itself. Because it crushes the tumor’s blood vessels (low perfusion), the chemotherapy never actually reaches the center. We need to clear the concrete to let the medicine in.
     </div>
 
-    <div class="logic-section">
-        <h3>1. LOXL2 & Matrix Stiffness</h3>
-        <p>Inhibiting the LOXL2 enzyme stops the 'molecular stapling' of collagen. This causes a rapid drop in the <b>Elastic Modulus (E)</b> and <b>Shear Wave Velocity (Vs)</b>.</p>
-        
-        <div class="data-grid">
-            <div class="data-card">
-                Stiffened State (Baseline)
-                <b class="red-text">3.87 m/s</b>
-                Vs (Shear Velocity)
-            </div>
-            <div class="data-card">
-                Primed State (Day 7)
-                <b class="green-text">2.10 m/s</b>
-                Vs (Shear Velocity)
-            </div>
-        </div>
+    <h2>Technical Mechanism: Solid Stress Alleviation</h2>
+    <p>The primary barrier to drug delivery in solid tumors is the Interstitial Fluid Pressure (IFP) and the compressive "solid stress" exerted by the extracellular matrix (ECM).</p>
+
+    <div class="logic-box">
+        // Target: Hyaluronan and Collagen type I cross-linking<br>
+        // Strategy: Enzymatic degradation (PEGPH20) combined with TGF-β inhibition<br>
+        // Goal: Reduce IFP from 40 mmHg to &lt;10 mmHg to re-open collapsed vasculature.
     </div>
 
-    <div class="logic-section">
-        <h3>2. Pressure Normalization</h3>
-        <p>When Vs drops below 2.5 m/s, the Interstitial Fluid Pressure (IFP) collapses from <b>25 mmHg</b> to <b>under 5 mmHg</b>. This 'opens the door' for drug delivery.</p>
-    </div>
+    <h2>Strategy for Researchers</h2>
+    <ul>
+        <li><strong>Matrix Decompression:</strong> Utilizing losartan or similar AT1R blockers to reduce collagen and hyaluronan production.</li>
+        <li><strong>Vascular Normalization:</strong> Re-engineering the tumor's "leaky" vessels into functional pipes using anti-VEGF titration.</li>
+        <li><strong>Result:</strong> Increasing the "Transmural Pressure Gradient" to allow convective transport of therapeutic agents into the necrotic core.</li>
+    </ul>
 
-    <a href="index.html" class="footer-link">← RETURN TO COMMAND CENTER</a>
+    <a href="index.html" class="back-link">Back to Pluribus Command</a>
 
 </body>
 </html>
