@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphene Ion-Gates</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: 'Inter', -apple-system, system-ui, sans-serif; line-height: 1.6; color: #1a1a1a; max-width: 900px; margin: 40px auto; padding: 20px; background: #fff; }
+        .header-slug { text-transform: uppercase; letter-spacing: 2px; color: #ffbf00; font-weight: bold; font-size: 0.8rem; border-bottom: 2px solid #000; padding-bottom: 5px; }
+        h1 { font-size: 2.8rem; margin-top: 20px; color: #050a05; letter-spacing: -1px; }
+        .abstract { background: #f4f4f4; border-left: 8px solid #ffbf00; padding: 30px; margin: 30px 0; font-size: 1.1rem; }
+        .tech-section { margin-bottom: 60px; }
+        h2 { color: #1a4d1a; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 40px; }
+        .equation-box { background: #050a05; color: #00ff00; padding: 25px; border-radius: 10px; font-family: 'Courier New', monospace; margin: 20px 0; overflow-x: auto; }
+        .safety-check { background: #fff0f0; border: 2px solid #d32f2f; padding: 25px; border-radius: 10px; margin-top: 50px; }
+        .safety-check h3 { color: #d32f2f; margin-top: 0; }
+        .footer-nav { margin-top: 80px; padding-top: 20px; border-top: 1px solid #eee; }
+        .footer-nav a { color: #ffbf00; font-weight: bold; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="header-slug">Pluribus Open Source Repository / Engineering Specs</div>
+    <h1>Knot #4: Graphene Ion-Gates</h1>
+    <p><strong>Status:</strong> Active / Technical Blueprint for High-Efficiency Desalination</p>
+
+    <div class="abstract">
+        <strong>The Problem:</strong> Reverse Osmosis (RO) is a "Mass" solution, requiring 60-80 bar of pressure to overcome osmotic resistance. 
+        <strong>The Un-knitting:</strong> We replace bulk membranes with single-atom-thick graphene sheets using electrostatic charge-repulsion (Information) to block ions while allowing frictionless water flux.
+    </div>
+
+    <div class="tech-section">
+        <h2>1. Pore Geometry & Optimization</h2>
+        <p>To achieve 99% salt rejection, pore diameter \(d\) must be precisely tuned to the hydration radius of Sodium (\(Na^+\)). While the ionic radius is \(0.095 \text{ nm}\), the effective hydration radius is \(\approx 0.36 \text{ nm}\).</p>
+        
+        <div class="equation-box">
+            Target Pore Diameter: \(0.7 \text{ nm} < d < 0.9 \text{ nm}\)<br>
+            Calculated Flux Gain: \(10^3 \times\) conventional polyamide membranes.
+        </div>
+    </div>
+
+    <div class="tech-section">
+        <h2>2. Electrostatic Functionalization</h2>
+        <p>By terminating pore edges with <strong>Hydroxyl (-OH)</strong> or <strong>Carboxyl (-COOH)</strong> groups, we create a negative surface charge density \(\sigma\). This induces a Donnan Exclusion effect, repelling anions (\(Cl^-\)) and creating a potential barrier that prevents cation passage through co-ion pairing.</p>
+        
+        <p>The energy barrier \(E_b\) for an ion of charge \(z\) passing through a functionalized pore is defined as:</p>
+        <div class="equation-box">
+            \[E_b = \frac{z e \Phi}{k_B T}\]
+            Where \(\Phi\) is the electrostatic potential at the pore center.
+        </div>
+    </div>
+
+    <div class="tech-section">
+        <h2>3. Fabrication Parameters (The "Centaur" Method)</h2>
+        <ul>
+            <li><strong>Substrate:</strong> Electropolished Copper foil (99.99% purity).</li>
+            <li><strong>Growth:</strong> Chemical Vapor Deposition (CVD) at \(1000^\circ\text{C}\) using Methane (\(CH_4\)) and Hydrogen (\(H_2\)).</li>
+            <li><strong>Etching:</strong> Oxygen plasma etching at \(20\text{W}\) for \(5\text{--}10\) seconds to nucleate sub-nanometer vacancies.</li>
+        </ul>
+    </div>
+
+    <div class="safety-check">
+        <h3>Dual-Use Risk Assessment (ITAR/EAR Compliance)</h3>
+        <p><strong>Warning:</strong> The precision of graphene nanopore fabrication has high crossover potential for isotopic enrichment. To prevent misuse:</p>
+        <ul>
+            <li>Blueprints are optimized for <strong>Hydrated Ion Sieving</strong> (desalination).</li>
+            <li>We do not provide vibrational frequency parameters for <strong>Deuterium</strong> or <strong>Uranium</strong> separation.</li>
+            <li><strong>Isotope Redaction:</strong> Mathematical models for mass-dependent kinetic isotope effects (KIE) are withheld from the public repository and reserved for vetted institutional partners.</li>
+        </ul>
+    </div>
+
+    <div class="footer-nav">
+        <a href="index.html">← RETURN TO PLURIBUS COMMAND</a>
+    </div>
+
+</body>
+</html>
