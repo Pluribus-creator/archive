@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stromal Bypass</title>
+    <style>
+        body { margin: 0; background: #050505; color: #00ffcc; font-family: monospace; overflow: hidden; }
+        #overlay { position: absolute; top: 20px; left: 20px; z-index: 10; pointer-events: none; }
+        .signal-text { text-shadow: 0 0 10px #00ffcc; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    <div id="overlay">
+        <div class="signal-text">Project: STROMAL BYPASS</div>
+        <div class="signal-text">Status: 6EQUJ5 DETECTED</div>
+        <div class="signal-text" style="color: #ff3366;">Tension: HIGH (Viscoelasticity Lying)</div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Creating a "Lying" Fortress Mesh
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshPhongMaterial({ color: 0x00ffcc, wireframe: true });
+        const knot = new THREE.Mesh(geometry, material);
+        scene.add(knot);
+
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+
+        camera.position.z = 30;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            // The mesh pulses to represent the "vocal tension"
+            knot.rotation.x += 0.01;
+            knot.rotation.y += 0.01;
+            let scale = 1 + Math.sin(Date.now() * 0.002) * 0.05;
+            knot.scale.set(scale, scale, scale);
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>
