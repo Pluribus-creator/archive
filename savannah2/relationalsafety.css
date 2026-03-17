@@ -1,0 +1,57 @@
+/* THE SAVANNAH SKIN - RELATIONAL SAFETY UI */
+
+:root {
+    --forest-deep: #050a05;
+    --leaf-green: #1a2e1a;
+    --amber-light: #ffbf00;
+    --gold-glow: rgba(255, 215, 0, 0.6);
+    --alert-red: #ff4444;
+}
+
+#savannah-site-integration {
+    background: radial-gradient(circle at center, var(--leaf-green) 0%, var(--forest-deep) 100%);
+    color: white;
+    font-family: 'Inter', -apple-system, sans-serif;
+    padding: 40px;
+    border-radius: 20px;
+    transition: background 3s ease;
+}
+
+/* The Physician Gauge Styling */
+#elastography-gauge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    color: var(--alert-red);
+    text-shadow: 0 0 10px var(--alert-red);
+    transition: all 1s ease;
+}
+
+/* The "Gold Light" Success State */
+.gold-light-active #savannah-site-integration {
+    background: radial-gradient(circle at center, #2e2600 0%, #050a05 100%);
+    box-shadow: inset 0 0 100px var(--gold-glow);
+}
+
+.gold-light-active #elastography-gauge {
+    color: var(--amber-light);
+    text-shadow: 0 0 20px var(--amber-light);
+}
+
+/* The Slider Styling (The Path) */
+#day-slider {
+    -webkit-appearance: none;
+    height: 10px;
+    border-radius: 5px;
+    background: #333;
+    outline: none;
+}
+
+#day-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--amber-light);
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--amber-light);
+}
