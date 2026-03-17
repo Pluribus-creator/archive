@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Savannah Protocol</title>
+    
+    <style>
+        :root {
+            --forest-deep: #050a05;
+            --leaf-green: #1a2e1a;
+            --amber-light: #ffbf00;
+            --gold-glow: rgba(255, 215, 0, 0.6);
+            --alert-red: #ff4444;
+        }
+
+        body { margin: 0; background: var(--forest-deep); color: white; font-family: sans-serif; overflow-x: hidden; }
+        
+        #savannah-interface {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            min-height: 100vh;
+            transition: background 3s ease;
+        }
+
+        #elastography-gauge {
+            font-family: monospace;
+            font-size: 3rem;
+            color: var(--alert-red);
+            margin: 20px 0;
+            text-shadow: 0 0 10px var(--alert-red);
+        }
+
+        .gold-active #elastography-gauge {
+            color: var(--amber-light);
+            text-shadow: 0 0 20px var(--amber-light);
+        }
+
+        .controls { width: 100%; max-width: 500px; text-align: center; z-index: 10; }
+        
+        input[type=range] { width: 100%; cursor: pointer; accent-color: var(--amber-light); }
+        
+        .start-btn {
+            padding: 15px 30px;
+            background: none;
+            border: 2px solid var(--amber-light);
+            color: var(--amber-light);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="savannah-interface">
+    <button class="start-btn" onclick="startProtocol()">ACTIVATE FREQUENCY</button>
+    
+    <div id="elastography-gauge">Vs: <span id="vs-value">3.87</span> m/s</div>
+    
+    <div class="controls">
+        <p>THE THREE-TWO-TWO SEQUENCE</p>
+        <input type="range" id="day-slider" min="0" max="7" value="0" oninput="updateSequence(this.value)">
+        <p>Day: <span id="day-display">0</span></p>
+    </div>
+</div>
+
+<script>
+    let audioCtx, osc, gainNode;
+
+    function startProtocol() {
+        // Initialize the Angels Humming
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        osc = audioCtx.createOscillator();
+        gainNode = audioCtx.createGain();
+        
+        osc.frequency.value = 432;
+        osc.type = 'sine';
+        
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        
+        gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+        gainNode.gain.linearRampToValueAtTime(0.1, audioCtx.currentTime + 2);
+        
+        osc.start();
+        document.querySelector('.start-btn').style.display = 'none';
+    }
+
+    function updateSequence(day) {
+        // The Math of Un-knitting
+        let stiffness = (day <= 3) ? (45 - (day * 6)) : (27 - ((day - 3) * 7.5));
+        if (day >= 6) stiffness = 12;
+        
+        let vs = Math.sqrt(stiffness / 3).toFixed(2);
+        
+        // Update UI
+        document.getElementById('vs-value').innerText = vs;
+        document.getElementById('day-display').innerText = day;
+        
+        // Check for "The Opening"
+        if (vs < 2.5) {
+            document.body.classList.add('gold-active');
+            if (gainNode) gainNode.gain.setTargetAtTime(0.2, audioCtx.currentTime, 1);
+        } else {
+            document.body.classList.remove('gold-active');
+        }
+    }
+</script>
+
+</body>
+</html>
