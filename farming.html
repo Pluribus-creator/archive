@@ -2,59 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vertical Aeroponics // Pluribus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Aeroponics // Pluribus</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body { 
-            background-color: #1a1a17; 
-            color: #e8e6e3; 
-            font-family: 'Georgia', serif; 
-            padding: 40px; 
-            max-width: 700px; 
-            margin: auto; 
-        }
-        h1 { border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .code-box { 
-            background: #000; 
-            color: #00ff00; 
-            padding: 20px; 
-            font-family: monospace; 
-            border: 1px solid #444;
-            white-space: pre;
-        }
-        .yellow-text { color: #ffbf00; font-style: italic; }
-        a { color: #fff; }
+        body { font-family: 'Georgia', serif; line-height: 1.6; color: #e8e6e3; background-color: #1a1a17; max-width: 800px; margin: 60px auto; padding: 20px; }
+        h1 { font-size: 2.2rem; font-weight: normal; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        h2 { font-size: 1.5rem; font-weight: normal; margin-top: 50px; color: #fff; border-left: 3px solid #ffbf00; padding-left: 15px; }
+        p, li { font-size: 1.15rem; color: #ccc; }
+        .high-school { font-style: italic; border-left: 2px solid #555; padding-left: 20px; margin: 30px 0; color: #aaa; }
+        .logic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0; }
+        .logic-card { background: #252522; padding: 20px; border-radius: 4px; border: 1px solid #333; }
+        .code-block { background: #000; color: #00ff00; padding: 20px; font-family: 'Courier New', monospace; border-radius: 4px; overflow-x: auto; white-space: pre; font-size: 0.9rem; }
+        .equation { text-align: center; padding: 20px; background: #111; margin: 20px 0; }
+        a { color: #fff; text-decoration: underline; }
     </style>
 </head>
 <body>
 
-    <h1>Knot #31: Vertical Aeroponics</h1>
+    <h1>Knot #31: Vertical Aeroponics (HPA Logic)</h1>
 
-    <p class="yellow-text">
-        High School Version: Traditional farming uses too much water. Aeroponics grows plants in a nutrient mist, using 95% less water and zero soil.
-    </p>
-
-    <h2>The CAD Logic</h2>
-    <div class="code-box">
-// OpenSCAD Frame
-module tower() {
-    cylinder(h=200, r=15);
-}
+    <div class="high-school">
+        <strong>The "Mist" Analogy:</strong> Traditional farming is like drinking from a heavy bucket. Aeroponics is walking through a nutrient-rich fog. By suspending roots in air and spraying them with a 50-micron mist, we increase oxygen levels to the max. Results: 3x faster growth, 95% less water, zero soil.
     </div>
 
+    <h2>1. The Physics of the Root Zone</h2>
+    <p>The goal is to hit the "Goldilocks Zone" of droplet size. If the droplets are too big (>100 microns), they drown the roots. If they are too small (<30 microns), they float away like smoke. We aim for 50 microns to maximize <strong>Nutrient Flux</strong>.</p>
+
+    <div class="equation">
+        $$D_{ideal} \approx 50 \mu m \implies P \approx 80-100 \text{ PSI}$$
+    </div>
+
+    <div class="logic-grid">
+        <div class="logic-card">
+            <strong>The Light Recipe</strong>
+            <ul>
+                <li><strong>Vegetative:</strong> 3:1 Red to Blue ratio (660nm : 450nm).</li>
+                <li><strong>Intensity:</strong> 250 µmol/m²/s (PPFD).</li>
+                <li><strong>Cycle:</strong> 18h ON / 6h OFF.</li>
+            </ul>
+        </div>
+        <div class="logic-card">
+            <strong>The Nutrient Logic</strong>
+            <ul>
+                <li><strong>pH Target:</strong> 5.8 - 6.2.</li>
+                <li><strong>EC (Conductivity):</strong> 1.2 - 2.0 mS/cm.</li>
+                <li><strong>Temp:</strong> Keep reservoir < 20°C to prevent algae.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>2. End-to-End Build (CAD Logic)</h2>
+    <p>The <strong>Phyllotaxis Tower</strong> design ensures that as the sun (or LED) moves, no plant is ever permanently in the shade of another.</p>
     
-
-    <h2>The Control Code</h2>
-    <div class="code-box">
-void loop() {
-  digitalWrite(12, HIGH); // Mist ON
-  delay(30000);
-  digitalWrite(12, LOW);  // Mist OFF
-  delay(300000);
+    <div class="code-block">
+// OpenSCAD Tower Architecture
+module vertical_tower(total_height, diameter) {
+    difference() {
+        cylinder(h=total_height, d=diameter, $fn=100);
+        translate([0,0,-1]) cylinder(h=total_height+2, d=diameter-5, $fn=100);
+    }
+    // Fibonacci Spiral for Ports
+    for (z = [20 : 15 : total_height-20]) {
+        rotate([0, 0, z * 137.5]) 
+        translate([diameter/2 - 2, 0, z]) 
+        rotate([0, 45, 0]) cylinder(h=15, d=6);
+    }
 }
     </div>
 
-    <br><br>
-    <a href="index.html">Back to Index</a>
+    <h2>3. The Autonomous Brain (ESP32)</h2>
+    <p>This code manages the high-pressure solenoid. It prevents "Root Drowning" by maintaining a strict 1:10 duty cycle.</p>
+
+    <div class="code-block" style="color: #66ccff;">
+// Pluribus Aero-Control v1.0
+const int SOLENOID_PIN = 14; 
+
+void loop() {
+  // 5 seconds of nutrient atomization
+  digitalWrite(SOLENOID_PIN, HIGH);
+  delay(5000); 
+  
+  // 5 minutes of oxygen exposure
+  digitalWrite(SOLENOID_PIN, LOW);
+  delay(300000); 
+}
+    </div>
+
+    <p><em>Note: Use a diaphragm pump with an accumulator tank to maintain 100 PSI without burning out the motor.</em></p>
+
+    <a href="index.html" style="display:block; margin-top:60px;">Back to the Command Index</a>
 
 </body>
 </html>
