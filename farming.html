@@ -2,52 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vertical Aeroponics // Pluribus</title>
     <style>
-        body { font-family: 'Georgia', serif; line-height: 1.6; color: #e8e6e3; background-color: #1a1a17; max-width: 700px; margin: 60px auto; padding: 20px; }
-        h1 { font-size: 2.2rem; font-weight: normal; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        h2 { font-size: 1.5rem; font-weight: normal; margin-top: 50px; color: #fff; border-left: 3px solid #ffbf00; padding-left: 15px; }
-        p, li { font-size: 1.15rem; color: #ccc; }
-        .high-school { font-style: italic; margin: 30px 0; color: #aaa; }
-        .cad-block { background: #111; padding: 20px; border: 1px dashed #444; font-family: 'Courier New', monospace; color: #00ff00; overflow-x: auto; white-space: pre; }
-        .back-link { margin-top: 100px; display: block; border-top: 1px solid #333; padding-top: 20px; color: #fff; text-decoration: underline; }
+        body { 
+            background-color: #1a1a17; 
+            color: #e8e6e3; 
+            font-family: 'Georgia', serif; 
+            padding: 40px; 
+            max-width: 700px; 
+            margin: auto; 
+        }
+        h1 { border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .code-box { 
+            background: #000; 
+            color: #00ff00; 
+            padding: 20px; 
+            font-family: monospace; 
+            border: 1px solid #444;
+            white-space: pre;
+        }
+        .yellow-text { color: #ffbf00; font-style: italic; }
+        a { color: #fff; }
     </style>
 </head>
 <body>
 
     <h1>Knot #31: Vertical Aeroponics</h1>
 
-    <div class="high-school">
-        <strong>The "Mist" Analogy:</strong> Traditional farming is like drinking from a heavy bucket. Aeroponics is walking through a nutrient-rich fog. Roots hang in the air, getting exactly what they need with 95% less water.
-    </div>
+    <p class="yellow-text">
+        High School Version: Traditional farming uses too much water. Aeroponics grows plants in a nutrient mist, using 95% less water and zero soil.
+    </p>
 
-    <h2>1. The Mechanical Logic (CAD)</h2>
-    <p>The tower uses a Fibonacci spiral to ensure every plant gets light.</p>
-    
-    <div class="cad-block">
-// OpenSCAD Tower Logic
-module tower(h, r) {
-    cylinder(h=h, r=r);
-    // Plant ports added here
+    <h2>The CAD Logic</h2>
+    <div class="code-box">
+// OpenSCAD Frame
+module tower() {
+    cylinder(h=200, r=15);
 }
     </div>
 
     
 
-    <h2>2. Control Code</h2>
-    <p>Precision misting logic for maximum oxygenation.</p>
-
-    <div class="cad-block" style="color: #66ccff;">
+    <h2>The Control Code</h2>
+    <div class="code-box">
 void loop() {
-  digitalWrite(PUMP_PIN, HIGH);
-  delay(30000); // 30s Mist
-  digitalWrite(PUMP_PIN, LOW);
-  delay(300000); // 5m Rest
+  digitalWrite(12, HIGH); // Mist ON
+  delay(30000);
+  digitalWrite(12, LOW);  // Mist OFF
+  delay(300000);
 }
     </div>
 
-    <a href="index.html" class="back-link">Back to Pluribus Command</a>
+    <br><br>
+    <a href="index.html">Back to Index</a>
 
 </body>
 </html>
